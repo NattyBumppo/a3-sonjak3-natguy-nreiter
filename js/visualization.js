@@ -47,15 +47,15 @@ function initialSetup() {
   width = document.getElementById('container').scrollWidth;
   height = width / 2;
 
-  addPicker('#start_date', startDateHandler);
-  addPicker('#end_date');
+  // addPicker('#start_date', startDateHandler);
+  // addPicker('#end_date');
 
   time_slider = d3.slider()
     .axis(true)
-    .min(slidervalues[0])
-    .max(slidervalues[1])
-    .value(slidervalues)
-    .on("slide", updateSliderValues)
+    .min(1957.7)
+    .max(2015.2)
+    .value(slidervalue)
+    .on("slide", updateSliderValue)
 
   d3.select('#slider')
     .style("width", width + "px")
@@ -64,14 +64,29 @@ function initialSetup() {
 
   tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
 
-
-  updateSliderValues(null, slidervalues);
+  updateSliderValue(null, slidervalue);
 
   // Play-related variables
-  currentPlayPoint = currentStartPoint = slidervalues[0];
-  currentPlayLimit = slidervalues[1];
+  currentPlayPoint = currentStartPoint = slidervalue;
+  currentPlayLimit = initialvalues[1];
   isPlaying = false;
   playTickRepeatTimeout;
+
+  var curr_date = $(document.createElement('div'));
+  curr_date.css(
+    {
+      position: 'absolute',
+      left: '10px',
+      bottom: '10px'
+    }
+  );
+
+  curr_date.attr('id', 'current_play_date');
+
+  $('#container').append(curr_date);
+
+  var currentDate = convertDecimalDate(currentPlayPoint);
+  $('#current_play_date').html(formatDate(currentDate));
 
   setup(width, height);
 
@@ -84,10 +99,12 @@ function initialSetup() {
   });
 
   setupPlayControls();
-  drawPlayBar();
+  //drawPlayBar();
   setupHashmarkArea();
 
   $('#filter_tag_list input').change(changeTag);
+
+  
 }
 
 function changeTag(evt) {
@@ -123,44 +140,6 @@ function setupPlayControls() {
       resetPlayButton();
     }
   });
-}
-
-function addPicker(selector, change_handler) {
-  $(selector).DatePicker({
-    format: 'm/d/Y',
-    date: $(selector).text().trim(),
-    current: $(selector).text().trim(),
-    starts: 1,
-    onChange: function(formatted, dates) {
-      if($(selector).text().trim() != formatted) {
-        $(selector).DatePickerHide();
-        updateSliderFromPickers();
-      }
-
-      $(selector).text(formatted);
-
-      if(change_handler) {
-        change_handler();
-      }
-    },
-    onRender: function(date) {
-      return {
-        disabled: (date < new Date(1957, 8, 13) || date >= new Date(2015, 2, 16))
-      }
-    }
-  });
-}
-
-function updateSliderFromPickers() {
-  var min_date = $('#start_date').DatePickerGetDate();
-  var max_date = $('#end_date').DatePickerGetDate();
-
-  var min_val = convertDateToDecimal(min_date);
-  var max_val = convertDateToDecimal(max_date);
-
-  updateSliderValues(null, [min_val, max_val]);
-
-  time_slider.value([min_val, max_val]);
 }
 
 // Uses list of current tags to generate colored hashmarks to indicate events
@@ -410,10 +389,14 @@ function addLaunchSite(lat,lon,text) {
     .attr("cy", iy)
     .attr("r", 10)
     .style("fill", "rgba(0,0,0,0)"); // change opacity to 1 to see the interaction area
+
   gpoint.append("svg:circle")
     .attr("cx", x)
     .attr("cy", y)
     .attr("r", 3)
+    .attr("id", "launchsite")
+    .attr("name", text)
+    .style("opacity", 0.2)
     .style("fill", "#04CCFF");
 
   gpoint
@@ -429,9 +412,107 @@ function addLaunchSite(lat,lon,text) {
       });
 }
 
+// Determines whether the given launch site was active by a given date
+function isLaunchSiteActive(text)
+{
+  var date = convertDecimalDate(currentPlayPoint);
+
+  switch(text)
+  {
+    case "Alcantara Space Center, Brasil":
+      establishedDate = new Date(1997, 11-1, 2);
+      return date > establishedDate;
+    case "Baikonur Cosmodrome, Kazakhstan":
+      establishedDate = new Date(1957, 10-1, 4);
+      return date > establishedDate;    
+    case "Broglio Space Centre, Kenya":
+      establishedDate = new Date(1967, 4-1, 26);
+      return date > establishedDate;
+    case "Dombarovsky Air Base, Russia":
+      establishedDate = new Date(2006, 7-1, 12);
+    case "Guiana Space Centre, French Guiana":
+      establishedDate = new Date(1970, 12-1, 12);
+      return date > establishedDate;    
+    case "Hammaguir Launch Site, Algeria":
+      establishedDate = new Date(1965, 11-1, 26);
+      return date > establishedDate;    
+    case "Imam Khomeini Space Center, Iran":
+      establishedDate = new Date(2008, 10-1, 16);
+      return date > establishedDate;    
+    case "Jiuquan Satellite Launch Center, China":
+      establishedDate = new Date(1970, 4-1, 24);
+      return date > establishedDate;    
+    case "Kapustin Yar Missile and Space Complex, Russia":
+      establishedDate = new Date(1961, 10-1, 27);
+      return date > establishedDate;    
+    case "Kennedy Space Center, USA":
+      establishedDate = new Date(1957, 12-1, 6);
+      return date > establishedDate;    
+    case "Kodiak Launch Complex, Alaska, USA":
+      establishedDate = new Date(2010, 11-1, 20);
+      return date > establishedDate;    
+    case "Naro Space Center, South Korea":
+      establishedDate = new Date(2009, 8-1, 25);
+      return date > establishedDate;          
+    case "Omelek Island, Kwajalein Atoll":
+      establishedDate = new Date(2000, 10-1, 9);
+      return date > establishedDate;          
+    case "Plesetsk Missile and Space Complex, Russia":
+      establishedDate = new Date(1966, 3-1, 17);
+      return date > establishedDate;          
+    case "Satish Dhawan Space Centre, India":
+      establishedDate = new Date(1979, 8-1, 10);
+      return date > establishedDate;          
+    case "Sea Launch Platform (mobile), USA":
+      establishedDate = new Date(1999, 3-1, 28);
+      return date > establishedDate;          
+    case "Sohae Satellite Launching Station, North Korea":
+      establishedDate = new Date(2012, 4-1, 12);
+      return date > establishedDate;    
+    case "Spaceport Gran Canaria, Spain":
+      establishedDate = new Date(1997, 4-1, 21);
+      return date > establishedDate;    
+    case "Submarine Launch Platform (mobile), Russia":
+      establishedDate = new Date(1998, 7-1, 7);
+      return date > establishedDate;    
+    case "Svobodnyy Launch Complex, Russia":
+      establishedDate = new Date(1997, 5-1, 4);
+      return date > establishedDate;    
+    case "Taiyuan Space Center, China":
+      establishedDate = new Date(1988, 12-1, 6);
+      return date > establishedDate;    
+    case "Tanegashima Space Center, Japan":
+      establishedDate = new Date(1975, 9-1, 9);
+      return date > establishedDate;          
+    case "Tonghae Satellite Launching Ground, North Korea":
+      establishedDate = new Date(1998, 8-1, 31);
+      return date > establishedDate;    
+    case "Uchinoura Space Center, Japan":
+      establishedDate = new Date(1966, 9-1, 26);
+      return date > establishedDate;    
+    case "Vandenberg Air Force Base, USA":
+      establishedDate = new Date(1958, 7-1, 25);
+      return date > establishedDate;    
+    case "Wallops Flight Facility, USA":
+      establishedDate = new Date(1960, 10-1, 4);
+      return date > establishedDate;    
+    case "Woomera Test Range, Australia":
+      establishedDate = new Date(1967, 11-1, 29);
+      return date > establishedDate;    
+    case "Xichang Launch Facility, China":
+      establishedDate = new Date(1984, 1-1, 29);
+      return date > establishedDate;    
+    case "Yavne Launch Facility, Israel":
+      establishedDate = new Date(1988, 9-1, 19);
+      return date > establishedDate;
+    default:
+      return false;
+  }
+}
+
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var initialvalues = [1957.7, 2015.2];
-var slidervalues = initialvalues.slice();
+var slidervalue = initialvalues[0];
 // Play-related variables
 var currentStartPoint = 0;
 var currentPlayPoint = 0;
@@ -449,26 +530,17 @@ function resetPlayButton() {
   playButton.style.boxShadow = "none";
 }
 
-// values = [ mindate, maxdate ] in decimal form
-function updateSliderValues(evt, values) {
+function updateSliderValue(evt, value) {
   // Cut all playback and update values for next play request
   pause();
-  clearCurrentDate();
   resetPlayButton();
-  currentPlayPoint = currentStartPoint = values[0];
-  currentPlayLimit = values[1];
+  currentPlayPoint = value;
+  currentPlayLimit = initialvalues[1];
 
-  var mindate = convertDecimalDate(values[0]);
-  var maxdate = convertDecimalDate(values[1]);
+  var mindate = convertDecimalDate(value);
+  var maxdate = convertDecimalDate(initialvalues[1]);
 
-  $('#start_date').DatePickerSetDate(mindate, true);
-  $('#end_date').DatePickerSetDate(maxdate, true);
-
-  $('#start_date').text(formatDate(mindate));
-
-  $('#end_date').text(formatDate(maxdate));
-
-  updatePlayBar();
+  updateSliderPositionAndCurrentDate();
 }
 
 function formatDate(date) {
@@ -584,25 +656,36 @@ function displayDate(year, month, day) {
     }
   }
 
-  updatePlayBar();
+  updateSliderPositionAndCurrentDate();
   redrawLaunchesOnly();
+  // updateLaunchSiteOpacities();
+}
+
+function updateLaunchSiteOpacities()
+{
+  launchSites = d3.selectAll("#launchsite")[0];
+
+  for (var i = 0; i < launchSites.length; i++)
+  {
+    var name = launchSites[i].getAttribute('name');
+
+    var siteActiveOpacity;
+    if (isLaunchSiteActive(name))
+    {
+      siteActiveOpacity = 1.0;
+    }
+    else
+    {
+      siteActiveOpacity = 0.2;
+    }
+    // Change opacity
+    launchSites[i].setAttribute('style', 'opacity: ' + siteActiveOpacity);
+  }
 }
 
 // Starts playing a sequence of launches at a specified interval
 function play()
 {
-  var curr_date = $(document.createElement('div'));
-  curr_date.css(
-    {
-      position: 'absolute',
-      left: '10px',
-      bottom: '10px'
-    }
-  );
-
-  curr_date.attr('id', 'current_play_date');
-
-  $('#container').append(curr_date);
   isPlaying = true;
   playTick();
 }
@@ -613,12 +696,6 @@ function pause() {
   clearTimeout(playTickRepeatTimeout);
 }
 
-function clearCurrentDate() {
-  $('#current_play_date').remove();
-}
-
-
-
 // Plays the sequence of all launches starting at the left slider position
 // and ending at the right slider position. This function will loop
 // indefinitely, until the right slider position is reached
@@ -628,9 +705,8 @@ function playTick()
   if (currentPlayPoint >= currentPlayLimit)
   {
     pause();
-    clearCurrentDate();
     resetPlayButton();
-    currentPlayPoint = currentStartPoint;
+    currentPlayPoint = initialvalues[0];
   }
 
   if (isPlaying)
@@ -642,7 +718,7 @@ function playTick()
     // Update displayed launches (getMonth() returns a value from 0 to 11, so we increment it)
     displayDate(currentDate.getFullYear(), currentDate.getMonth()+1, currentDate.getDate());
     $('#current_play_date').html(formatDate(currentDate));
-		updatePlayBar();
+		updateSliderPositionAndCurrentDate();
     // This function will be called again in {playSpeed} ms
     playTickRepeatTimeout = setTimeout(playTick, playSpeed);
   }
@@ -664,17 +740,9 @@ function drawPlayBar() {
     .attr("fill", "black");
 }
 
-function updatePlayBar() {
-  var pixelWidth = parseInt(d3.select("#slider").style("width"));
-  var range = initialvalues[1] - initialvalues[0];
-  var progress = (currentPlayPoint - initialvalues[0]) / range;
-  var left = progress * pixelWidth - playBarWidth / 2;
-  d3.select("#playBar").style("left", Math.floor(left) + "px"); 
-}
-
-function startDateHandler() {
-  var start_date = $('#start_date').DatePickerGetDate();
-
-  // Incrementing month because getMonth() returns a value from 0 to 11
-  displayDate(start_date.getFullYear(), start_date.getMonth()+1, start_date.getDate());
+function updateSliderPositionAndCurrentDate() {
+  var currentDate = convertDecimalDate(currentPlayPoint);
+  $('#current_play_date').html(formatDate(currentDate));
+  time_slider.value(currentPlayPoint);
+  updateLaunchSiteOpacities();
 }
