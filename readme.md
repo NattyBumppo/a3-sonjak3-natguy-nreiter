@@ -1,4 +1,4 @@
-a3-sonjak3-natguy-nreiter
+rocket-launch-history
 ===============
 
 ## Team Members
@@ -13,7 +13,7 @@ This is an application that visualizes the history of space rocket launches acro
 
 ## Running Instructions
 
-http://cse512-15s.github.io/a3-sonjak3-natguy-nreiter/
+http://nattybumppo.github.io/rocket-launch-history/
 
 OR
 
