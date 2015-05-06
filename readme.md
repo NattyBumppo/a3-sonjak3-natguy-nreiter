@@ -3,9 +3,9 @@ rocket-launch-history
 
 ## Team Members
 
-1. Sonja Khan <sonjak3@uw.edu>
-2. Nat Guy <natguy@uw.edu>
-3. Nick Reiter <nreiter@uw.edu>
+1. Sonja Khan ([GitHub](https://github.com/sonjakhan))
+2. Nat Guy ([GitHub](https://github.com/NattyBumppo))
+3. Nick Reiter ([GitHub](https://github.com/scriptreiter))
 
 ## A Brief History of Rocket Launches
 
