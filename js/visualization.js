@@ -716,7 +716,7 @@ function updateLaunchSiteOpacities()
 
   for (var i = 0; i < launchSites.length; i++)
   {
-    var name = launchSites[i].getAttribute('name');
+    var name = launchSites[i].getAttribute('name').trim();
 
     var siteActiveOpacity;
     if (isLaunchSiteActive(name))
