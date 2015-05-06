@@ -8,6 +8,7 @@
 
 .d3-slider-horizontal {
     height: .8em;
+    background: #3C3C3C;
 }  
 
 .d3-slider-range {
@@ -35,6 +36,7 @@
     position: absolute;
     width: 7px;
     height: 26px;
+    margin: -2px;
     border: 1px solid #aaa;
     border-radius: 4px;
     background: #aaa;
@@ -42,8 +44,23 @@
     z-index: 3;
 }
 
+.d3-slider-inner-bar {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 8px;
+    stroke-linecap: round;
+}
+
 .d3-slider-handle:hover {
     border: 1px solid #999999;
+}
+
+.axis .domain {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: 10px;
+  stroke-linecap: round;
 }
 
 .d3-slider-horizontal .d3-slider-handle {
