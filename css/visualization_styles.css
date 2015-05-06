@@ -230,6 +230,14 @@ div.tooltip {
   background: rgba(36, 36, 36, 0.75);
 }
 
+/*#launch_info {
+  position: absolute;
+  top: -200px;
+  left: 10px;
+  background: rgba(36, 36, 36, 0.75);
+
+  }*/
+
 #filters h3 {
   padding: 5px;
   margin: 0px;

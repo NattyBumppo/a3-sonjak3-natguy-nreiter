@@ -217,6 +217,23 @@ function drawHashmarkAtDate(year, month, day, tag, success)
     .attr("y2", "20")
     .style("stroke", color)
     .style("stroke-width", 1);
+
+  // Add a tooltip
+  // var tooltipString = getLaunchInfoString(launchData[year][month], year, month);
+
+  // var offsetL = 20;
+  // var offsetT = 10;
+  // hashmark.on("mousemove", function(d,i) {
+  //     var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
+
+  //     tooltip.classed("hidden", false)
+  //            .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
+  //            .html(tooltipString);
+  //     })
+  //     .on("mouseout",  function(d,i) {
+  //       tooltip.classed("hidden", true);
+  //     });
+
 }
 
 function getHashmarkColor(tag, success)
@@ -511,6 +528,7 @@ function isLaunchSiteActive(text)
 }
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var monthFullNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var initialvalues = [1957.7, 2015.2];
 var slidervalue = initialvalues[0];
 // Play-related variables
@@ -620,7 +638,10 @@ function loadLaunchSites() {
 function displayDate(year, month, day) {
   var entries = [];
 
-  // Loads launches  from current day's launch data
+  // Load entries for the month and display them in the launch information window
+  // var monthInfo = getMonthlyLaunchInfoString(launchData[year][month], year, month);
+
+  // Loads launches from current day's launch data
   if(launchData[year] && launchData[year][month] && launchData[year][month][day]) {
     entries = launchData[year][month][day];
   }
@@ -659,6 +680,34 @@ function displayDate(year, month, day) {
   updateSliderPositionAndCurrentDate();
   redrawLaunchesOnly();
   // updateLaunchSiteOpacities();
+}
+
+// Update the window on the screen that displays information about launches
+function getMonthlyLaunchInfoString(monthDict, year, monthNo)
+{
+  var displayString = monthDict[monthNo-1] + '\n\n';
+  for (day in monthDict)
+  {
+    // Grab entries for this day
+    var entries = monthDict[day];
+    for (var i = 0; i < entries.length; i++)
+    {
+      // Each entry's data is added to the box
+      var entry = entries[i];
+      // console.log(monthNo);
+      // console.log(day);
+      // console.log(entry);
+      displayString += entry["Manufacturer's Payload Name"] + '\n';
+      displayString += 'Launch Site: ' + entry['Launch Site (Full)'] + '\n';
+      displayString += 'Time: ' + entry['Launch Date and Time (UTC)'] + '\n';
+      displayString += 'Launch Vehicle: ' + entry['Launch Vehicle'] + '\n';
+      // displayString += 'Success/Failure: ' + entry['Success'] + '\n';
+      displayString += 'NSSDC ID: ' + entry['International Designator'] + '\n';
+      displayString += '\n';
+    }
+  }
+
+  return displayString;
 }
 
 function updateLaunchSiteOpacities()
