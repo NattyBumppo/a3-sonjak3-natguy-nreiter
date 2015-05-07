@@ -5484,7 +5484,7 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 2015 Feb 11 2303:42,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9,S,DSCOVR,Deep Space Climate Obsy.,CC       LC40,,2015-007A,,S40390,,,,SpaceX,
 2015 Feb 17 1100:17,TYMSC,"Baikonur Cosmodrome, Kazakhstan",45.6,63.4,Soyuz-U,S,Progress M-26M,Progress 7K-TGM No.425,GIK-5    LC1,,2015-008A,,S40392,,,,,
 2015 Feb 27 1101:36,PLMSC,"Plesetsk Missile and Space Complex, Russia",62.8,40.1,Soyuz-2-1A,S,Kosmos-2503,Bars-M No. 1L,GIK-1    LC43/4,,2015-009A,,S40420,,,,,
-2015 Mar 2 0350:00,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9,S,ABS-3A,ABS-3A,CC       LC40,,2015-010A,,S40424,,,,SpaceX,
+2015 Mar 2 0350:00,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9,S,ABS-3A / Eutelsat 115 West B,ABS-3A,CC       LC40,,2015-010A,,S40424,,,,SpaceX,
 2015 Mar 13 0244,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Atlas V 421,S,MMS 1,Magnetospheric Multiscale,CC       SLC41,,2015-011A,,S40482,,,,,
 2015 Mar 18 2205,TYMSC,"Baikonur Cosmodrome, Kazakhstan",45.6,63.4,Proton-M/Briz-M,S,Ekspress AM-7,Ekspress AM-7,GIK-5    LC200/39,,2015-012A,,S40505,,,,,
 2015 Mar 25 1836,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,"Delta 4M+(4,2)",S,GPS SVN 71,,Canaveral SLC37,,2015-013A,,S40534  2,,,,,
