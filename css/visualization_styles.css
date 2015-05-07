@@ -18,11 +18,20 @@ circle {
 
 .text {
   font-size:10px;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 #container {
-  height:100%;
+  height: 100%;
+  position: relative;
+  margin-right:270px;
+}
+#sidebar {
+  float: right;
+  width:250px;
+}
+
+#wrapper {
   position: relative;
 }
 
@@ -224,23 +233,13 @@ div.tooltip {
 }
 
 #filters {
-  position: absolute;
-  top: 2px;
-  right: -2px;
   background: rgba(36, 36, 36, 0.75);
 }
-
-/*#launch_info {
-  position: absolute;
-  top: -200px;
-  left: 10px;
-  background: rgba(36, 36, 36, 0.75);
-
-  }*/
 
 #filters h3 {
   padding: 5px;
   margin: 0px;
+
 }
 
 #filter_tag_list {
@@ -275,15 +274,16 @@ div.tooltip {
   width: 260px;
 	height: auto;
   border:solid 1px;
-	opacity: 0.8;
+	opacity: 1.0;
 	fill: white;
 	overflow: auto;
-	position: absolute;
 	z-index: 20;
-	top: 2px;
-	left: 2px;
-	background: rgba(36, 36, 36, 0.75);
+	right: -8px;
+	background: rgba(11, 11, 11, 0.75);
 	overflow: hidden;
+  position: relative;
+  bottom: 6px;
+  margin-top: 10px;
 }
 
 #title_bar{
@@ -293,13 +293,13 @@ div.tooltip {
 	font-size: 11px;
 	font-family:  'Titillium Web', sans-serif;
 	cursor: pointer;
-	background: rgba(36, 36, 36, 0.75);
+	background: rgba(77, 77, 77, 0.75);
 }
 
 #launchInfoBox h3 {
 	text-align: center;
-	margin: 0;
-	float: top;
+	margin: 3;
+	float: bottom;
 }
 
 #launchInfoBoxAndSlider::-webkit-scrollbar-track
@@ -323,10 +323,10 @@ div.tooltip {
 }
 
 #launchInfoBoxAndSlider{
-	display: none;
 	font-size: 10px;
 	font-family:  'Titillium Web', sans-serif;
-	margin-top: 4px;
+	margin-left: 16px;
+  
 }
 
 #clearButton {
@@ -361,7 +361,7 @@ div.tooltip {
 {
 	margin-left: 10px;
 	float: left;
-	height: 390px;
+  height: 300px;
 	width: 230px;
 	background: rgba(36, 36, 36, 0.75);
 	overflow-y: scroll;

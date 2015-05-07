@@ -20,66 +20,38 @@
     <script type="text/javascript" src="js/visualization.js"></script>
   </head>
   <body>
-
-  
-
   
     <h1>A BRIEF HISTORY OF ROCKET LAUNCHES</h1>
     <p>Over 5,000 rocket launches from nearly 30 different sites are depicted, starting in 1957 when Sputnik became the first artificial object in orbit.</p>
+<div id="wrapper">
+<div id="sidebar">
+  <div id="filters">
+  <h3>
+    Launches to Show
+  </h3>
+  <select id="filter_tag_list">
+    <option value="none" name="filter_tag">All Launches</option>
+    <option value="Moon" name="filter_tag">Moon</option>
+    <option value="Venus" name="filter_tag">Venus</option>
+    <option value="Mars" name="filter_tag">Mars</option>
+    <option value="Outer Solar System">Outer Solar System</option>
+    <option value="Space Shuttle" name="filter_tag">Space Shuttle</option>
+    <option value="SpaceX" name="filter_tag">SpaceX</option>
+  </select>
 
+</div> 
+  <div id="launchInfoBox">
+    <div id="title_bar"><h3>Launch Log</h3></div>
+    <div class="scrollbar" id="launchInfoBoxAndSlider">
+      <div id="launchLogText"></div><div id="clearButton">Clear</div>
+    </div>
+  </div>
+</div>
     <div id="container">
-	 <div id="launchInfoBox">
-		<div id="title_bar"><h3>Launch Log</h3></div>
-		<div class="scrollbar" id="launchInfoBoxAndSlider">
-			<div id="launchLogText"></div><div id="clearButton">Clear</div>
-		</div>
-	</div>
-
 	
-      <div id="filters">
-        <h3>
-          Launch Filters
-        </h3>
-        <ul id="filter_tag_list">
-          <li>
-            <input type="radio" name="filter_tag" value="none" checked="checked" />
-            All Launches
-          <li>
-            <input type="radio" name="filter_tag" value="Mars" />
-            Mars
-          </li>
-          <li>
-            <input type="radio" name="filter_tag" value="Moon" />
-            Moon
-          </li>
-          <li>
-            <input type="radio" name="filter_tag" value="Outer Solar System" />
-            Outer Solar System
-          </li>
-          <li>
-            <input type="radio" name="filter_tag" value="Space Shuttle" />
-            Space Shuttle
-          </li>
-          <li>
-            <input type="radio" name="filter_tag" value="SpaceX" />
-            SpaceX
-          </li>
-          <li>
-            <input type="radio" name="filter_tag" value="Venus" />
-            Venus
-          </li>
-        </ul>
-      </div>
     </div>
 	
-	
-
-    <!-- <div id="container">
-      <div id="launch_info">
-        Monthly Launch Info
-        <div id="month_info"></div>
-      </div>
-    </div>    --> 
+	</div>
     <div id="playControls">
       <div id="playButton">Play</div>
       <div class="toggle_radio">
@@ -104,7 +76,7 @@
 	
     <br/>
     <p class="description">Created by <a href="https://github.com/NattyBumppo">Nathaniel Guy</a>, <a href="https://github.com/sonjakhan">Sonja Khan</a>, and <a href="https://github.com/scriptreiter">Nicholas Reiter</a>.</p>
-    <p class="description">Map code adapted from <a href="http://techslides.com/d3-map-starter-kit/">techslides</a> &amp; slider code from <a href="https://github.com/turban/d3.slider">turban.</a> Vertical scrollbar code adapted from <a href="http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/">Tim Holman</a>. Drag rectangles code adapted from <a href="https://gist.github.com/mccannf/1629464">mccannf</a>.</p>
+    <p class="description">Map code adapted from <a href="http://techslides.com/d3-map-starter-kit/">techslides</a> &amp; slider code from <a href="https://github.com/turban/d3.slider">turban.</a> Vertical scrollbar code adapted from <a href="http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/">Tim Holman</a>. Design consulting by <a href="http://alicefox.net">Alice Fox</a>.</p>
     <p class="description">Rocket launch data for this visualization is sourced from <a href="https://celestrak.com/pub/satcat.txt">SATCAT</a>, the <a href="http://nssdc.gsfc.nasa.gov/nmc/">NSSDC master catalog</a>, and Jonathan McDowell's <a href="http://planet4589.org/space/log/launchlog.txt">launchlog</a>.</p>
 	</body>
 </html>

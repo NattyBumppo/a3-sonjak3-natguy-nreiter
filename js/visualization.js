@@ -6,7 +6,7 @@ d3.select(window).on("resize", throttle);
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 9])
-    .on("zoom", move);
+    .on("zoom", moveMap);
 
 var month_map = {
   'Jan': 1,
@@ -102,16 +102,12 @@ function initialSetup() {
   //drawPlayBar();
   setupHashmarkArea();
 
-  $('#filter_tag_list input').change(changeTag);
+  $('#filter_tag_list').change(changeTag);
 
-	  // $(function() {
-			// $( "#launchInfoBox" ).draggable();
-	  // });
-	  
-	  $("#title_bar").click(function(){
-		$("#launchInfoBoxAndSlider").slideToggle();
+ //  $("#title_bar").click(function(){
+	// $("#launchInfoBoxAndSlider").slideToggle();
 
-	});
+	// });
 	
   setupClearButton();
 }
@@ -154,12 +150,19 @@ function setupPlayControls() {
 function setupClearButton() {
   var clearButton = $('#clearButton');
 
-  d3.select("#clearButton").on('click', function() {
-	// Clear launch log
-	var launchLogText = $('#launchLogText');
-	var currentText = launchLogText.html();
-	// Clear the launch log box
-	launchLogText.html('');
+  d3.select("#clearButton").on('mousedown', function() {
+      this.style.boxShadow = "inset 0 0 10px #000";
+  });
+
+  d3.select("#clearButton").on('mouseup', function() {
+    //change style back
+    this.style.boxShadow = '';
+
+    // Clear launch log
+    var launchLogText = $('#launchLogText');
+    var currentText = launchLogText.html();
+    // Clear the launch log box
+    launchLogText.html('');
   });
 }
 
@@ -238,23 +241,6 @@ function drawHashmarkAtDate(year, month, day, tag, success)
     .attr("y2", "20")
     .style("stroke", color)
     .style("stroke-width", 1);
-
-  // Add a tooltip
-  // var tooltipString = getLaunchInfoString(launchData[year][month], year, month);
-
-  // var offsetL = 20;
-  // var offsetT = 10;
-  // hashmark.on("mousemove", function(d,i) {
-  //     var mouse = d3.mouse(svg.node()).map( function(d) { return parseInt(d); } );
-
-  //     tooltip.classed("hidden", false)
-  //            .attr("style", "left:"+(mouse[0]+offsetL)+"px;top:"+(mouse[1]+offsetT)+"px")
-  //            .html(tooltipString);
-  //     })
-  //     .on("mouseout",  function(d,i) {
-  //       tooltip.classed("hidden", true);
-  //     });
-
 }
 
 function getHashmarkColor(tag, success)
@@ -280,7 +266,7 @@ function setup(width,height){
       .attr("width", width)
       .attr("height", height)
       .attr("id", "map")
-      //.call(zoom)
+      // .call(zoom)
       .on("click", click)
       .append("g");
 
@@ -354,7 +340,7 @@ function redrawLaunchesOnly()
 	// Don't redraw launch sites because everything will be sad  
 }
 
-function move() {
+function moveMap() {
   var t = d3.event.translate;
   var s = d3.event.scale; 
   zscale = s;
