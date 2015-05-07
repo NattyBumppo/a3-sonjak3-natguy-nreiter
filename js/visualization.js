@@ -61,7 +61,7 @@ function initialSetup() {
   time_slider = d3.slider()
     .axis(true)
     .min(1957.7)
-    .max(2015.5)
+    .max(2015.25)
     .value(slidervalue)
     .on("slide", updateSliderValue)
 
@@ -550,7 +550,7 @@ function isLaunchSiteActive(text)
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var monthFullNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var initialvalues = [1957.7, 2015.5];
+var initialvalues = [1957.7, 2015.25];
 var slidervalue = initialvalues[0];
 // Play-related variables
 var currentStartPoint = 0;
