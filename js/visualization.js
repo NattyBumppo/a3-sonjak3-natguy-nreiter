@@ -395,7 +395,8 @@ function addLaunchEvent(lat,lon,success) {
         .attr("cx", x)
         .attr("cy", y)
         .attr("class","point " + success)
-        .attr("r", 15);
+        .attr("r", 15)
+        .attr("style", "pointer-events: none");
 
   circle.transition()
     .duration(1000)
