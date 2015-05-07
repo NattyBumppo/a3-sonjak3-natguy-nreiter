@@ -416,9 +416,9 @@ function addLaunchSite(lat,lon,text) {
   var iy = y;
   // these are special cased because the launch sites overlap
   // on the map.
-  if (text.startsWith('Tanegashima')) {
+  if (text.indexOf('Tanegashima') == 0) {
     iy += 10;
-  } else if (text.startsWith('Uchinoura')){
+  } else if (text.indexOf('Uchinoura') == 0){
     iy -= 10;
     ix += 5;
   }
