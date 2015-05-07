@@ -11,6 +11,8 @@
     <link rel="stylesheet" media="screen" type="text/css" href="bootstrap/css/bootstrap.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>	
     <script type="text/javascript" src="datepicker/js/datepicker.js"></script>
     <script src="js/d3.min.js"></script>
     <script src="js/topojson.v1.min.js"></script>
@@ -19,9 +21,21 @@
   </head>
   <body>
 
+  
+
+  
     <h1>A BRIEF HISTORY OF ROCKET LAUNCHES</h1>
     <p>Over 5,000 rocket launches from nearly 30 different sites are depicted, starting in 1957 when Sputnik became the first artificial object in orbit.</p>
+
     <div id="container">
+	 <div id="launchInfoBox">
+		<div id="title_bar"><h3>Launch Log</h3></div>
+		<div class="scrollbar" id="launchInfoBoxAndSlider">
+			<div id="launchLogText"></div><div id="clearButton">Clear</div>
+		</div>
+	</div>
+
+	
       <div id="filters">
         <h3>
           Launch Filters
@@ -57,6 +71,9 @@
         </ul>
       </div>
     </div>
+	
+	
+
     <!-- <div id="container">
       <div id="launch_info">
         Monthly Launch Info
@@ -84,9 +101,10 @@
     <div id="sliderContainer">
       <div id="slider"></div>
     </div>
+	
     <br/>
     <p class="description">Created by <a href="https://github.com/NattyBumppo">Nathaniel Guy</a>, <a href="https://github.com/sonjakhan">Sonja Khan</a>, and <a href="https://github.com/scriptreiter">Nicholas Reiter</a>.</p>
     <p class="description">Map code adapted from <a href="http://techslides.com/d3-map-starter-kit/">techslides</a> &amp; slider code from <a href="https://github.com/turban/d3.slider">turban.</a></p>
     <p class="description">Rocket launch data for this visualization is sourced from <a href="https://celestrak.com/pub/satcat.txt">SATCAT</a>, the <a href="http://nssdc.gsfc.nasa.gov/nmc/">NSSDC master catalog</a>, and Jonathan McDowell's <a href="http://planet4589.org/space/log/launchlog.txt">launchlog</a>.</p>
-  </body>
+	</body>
 </html>

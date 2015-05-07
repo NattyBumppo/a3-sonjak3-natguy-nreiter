@@ -104,7 +104,16 @@ function initialSetup() {
 
   $('#filter_tag_list input').change(changeTag);
 
-  
+	  // $(function() {
+			// $( "#launchInfoBox" ).draggable();
+	  // });
+	  
+	  $("#title_bar").click(function(){
+		$("#launchInfoBoxAndSlider").slideToggle();
+
+	});
+	
+  setupClearButton();
 }
 
 function changeTag(evt) {
@@ -142,6 +151,37 @@ function setupPlayControls() {
   });
 }
 
+function setupClearButton() {
+  console.log('setup');
+  var clearButton = $('#clearButton');
+  // clearButton.on("click", function() {
+	  // console.log('mofo');
+	 // // Clear launch log
+	 // var launchLogBox = $('#launchInfoBoxAndSlider');
+	 // var currentText = launchLogBox.html();
+	 // // Clear the launch log box (except for the clear button itself)
+	 // launchLogBox.html('<div id="clearButton">Clear</div>');
+  // });
+  // clearButton.click(function() {
+	  // console.log('clicked');
+	 // // Clear launch log
+	 // var launchLogBox = $('#launchInfoBoxAndSlider');
+	 // var currentText = launchLogBox.html();
+	 // // Clear the launch log box (except for the clear button itself)
+	 // launchLogBox.html('<div id="clearButton">Clear</div>');
+	 // // Rebind
+	 // setupClearButton();
+   // });
+   d3.select("#clearButton").on('click', function() {
+	 console.log('clicked');
+	 // Clear launch log
+	 var launchLogText = $('#launchLogText');
+	 var currentText = launchLogText.html();
+	 // Clear the launch log box
+	 launchLogText.html('');
+   });
+}
+
 // Uses list of current tags to generate colored hashmarks to indicate events
 // (Iterates through all entries, which may take a while)
 function drawHashmarks()
@@ -168,7 +208,7 @@ function drawHashmarks()
               {
                 // Get whether the launch succeeded or not
                 success = entry['Success'];
-                drawHashmarkAtDate(year, month, day, currentTags[tagNo], success);
+                drawHashmarkAtDate(year, month-1, day, currentTags[tagNo], success);
               }
             }
           }
@@ -310,8 +350,8 @@ function drawLaunchEvents()
   var info;
   for(var i=0;i<currentLaunches.length;i++) {
     info = currentLaunches[i].info;
-    cls = (info.Success == 'S') ? 'launch_success' : 'launch_failure';
-    addLaunchEvent(info.Longitude, info.Latitude, info["Launch Vehicle"], cls);
+    success = (info.Success == 'S') ? 'launch_success' : 'launch_failure';
+    addLaunchEvent(info.Longitude, info.Latitude, success);
   }
 }      
 
@@ -366,14 +406,15 @@ function click() {
   var latlon = projection.invert(d3.mouse(this));
 }
 
-function addLaunchEvent(lat,lon,text,cls) {
+function addLaunchEvent(lat,lon,success) {
+	
   var x = projection([lat,lon])[0];
   var y = projection([lat,lon])[1];
 
   var circle = g.append("svg:circle")
         .attr("cx", x)
         .attr("cy", y)
-        .attr("class","point " + cls)
+        .attr("class","point " + success)
         .attr("r", 15);
 
   circle.transition()
@@ -638,9 +679,6 @@ function loadLaunchSites() {
 function displayDate(year, month, day) {
   var entries = [];
 
-  // Load entries for the month and display them in the launch information window
-  // var monthInfo = getMonthlyLaunchInfoString(launchData[year][month], year, month);
-
   // Loads launches from current day's launch data
   if(launchData[year] && launchData[year][month] && launchData[year][month][day]) {
     entries = launchData[year][month][day];
@@ -665,6 +703,7 @@ function displayDate(year, month, day) {
           currentLaunches.push(
             { birthtime: (new Date()).getTime(),
               info: entries[i] } );
+		  addEntryToLaunchLog(entries[i]);
         }
       }
     }
@@ -674,6 +713,7 @@ function displayDate(year, month, day) {
       currentLaunches.push(
         { birthtime: (new Date()).getTime(),
           info: entries[i] } );
+	  addEntryToLaunchLog(entries[i]);
     }
   }
 
@@ -682,30 +722,35 @@ function displayDate(year, month, day) {
   // updateLaunchSiteOpacities();
 }
 
-// Update the window on the screen that displays information about launches
-function getMonthlyLaunchInfoString(monthDict, year, monthNo)
 {
-  var displayString = monthDict[monthNo-1] + '\n\n';
-  for (day in monthDict)
-  {
-    // Grab entries for this day
-    var entries = monthDict[day];
-    for (var i = 0; i < entries.length; i++)
-    {
-      // Each entry's data is added to the box
-      var entry = entries[i];
-      // console.log(monthNo);
-      // console.log(day);
-      // console.log(entry);
-      displayString += entry["Manufacturer's Payload Name"] + '\n';
-      displayString += 'Launch Site: ' + entry['Launch Site (Full)'] + '\n';
-      displayString += 'Time: ' + entry['Launch Date and Time (UTC)'] + '\n';
-      displayString += 'Launch Vehicle: ' + entry['Launch Vehicle'] + '\n';
-      // displayString += 'Success/Failure: ' + entry['Success'] + '\n';
-      displayString += 'NSSDC ID: ' + entry['International Designator'] + '\n';
-      displayString += '\n';
-    }
-  }
+function addEntryToLaunchLog(entry)
+	 // Add this entry to the text-based launch log
+	 var textToAdd = getLaunchInfo(entry);
+	 var launchLogText = $('#launchLogText');
+	 var currentText = launchLogText.html();
+	 launchLogText.html(currentText + textToAdd);
+	 // Adjust scroll height to stay at the bottom
+	 var launchLogBox = $('#launchInfoBoxAndSlider');
+	 launchLogBox.scrollTop($('.scrollbar').scrollTop());
+}
+
+// For updating the window on the screen that displays information about launches
+function getLaunchInfo(entry)
+{
+  var displayString = '<p>';
+
+  // Add entry's data to the string
+  // console.log(monthNo);
+  // console.log(day);
+  // console.log(entry);
+  var color = entry['Success'].trim() === 'S' ? 'green' : 'red';
+  displayString += '<font color="' + color + '">' + entry["Manufacturer's Payload Name"] + '</font><br>';
+  displayString += 'Launch Site: ' + entry['Launch Site (Full)'] + '<br>';
+  displayString += 'Time: ' + entry['Launch Date and Time (UTC)'] + '<br>';
+  displayString += 'Launch Vehicle: ' + entry['Launch Vehicle'] + '<br>';
+  // displayString += 'Success/Failure: ' + entry['Success'] + '<br>';
+  displayString += 'NSSDC ID: ' + entry['International Designator'] + '<br>';
+  displayString += '</p>';
 
   return displayString;
 }
