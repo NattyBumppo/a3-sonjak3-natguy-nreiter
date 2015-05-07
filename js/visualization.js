@@ -6,7 +6,7 @@ d3.select(window).on("resize", throttle);
 
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 9])
-    .on("zoom", move);
+    .on("zoom", moveMap);
 
 var month_map = {
   'Jan': 1,
@@ -44,16 +44,24 @@ var playSpeed = 50;
 const playBarWidth = 4;
 
 function initialSetup() {
-  width = document.getElementById('container').scrollWidth;
+  // Just to make sure we get the right height...
+  d3.select("#container").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("id", "map")
+      // .call(zoom)
+      .on("click", click)
+      .append("g");
+
+  width = document.getElementById('container').clientWidth;
   height = width / 2;
 
-  // addPicker('#start_date', startDateHandler);
-  // addPicker('#end_date');
+  d3.select('#map').remove();
 
   time_slider = d3.slider()
     .axis(true)
     .min(1957.7)
-    .max(2015.2)
+    .max(2015.25)
     .value(slidervalue)
     .on("slide", updateSliderValue)
 
@@ -102,9 +110,9 @@ function initialSetup() {
   //drawPlayBar();
   setupHashmarkArea();
 
-  $('#filter_tag_list input').change(changeTag);
-
-  
+  $('#filter_tag_list').change(changeTag);
+	
+  setupClearButton();
 }
 
 function changeTag(evt) {
@@ -142,6 +150,25 @@ function setupPlayControls() {
   });
 }
 
+function setupClearButton() {
+  var clearButton = $('#clearButton');
+
+  d3.select("#clearButton").on('mousedown', function() {
+      this.style.boxShadow = "inset 0 0 10px #000";
+  });
+
+  d3.select("#clearButton").on('mouseup', function() {
+    //change style back
+    this.style.boxShadow = '';
+
+    // Clear launch log
+    var launchLogText = $('#launchLogText');
+    var currentText = launchLogText.html();
+    // Clear the launch log box
+    launchLogText.html('');
+  });
+}
+
 // Uses list of current tags to generate colored hashmarks to indicate events
 // (Iterates through all entries, which may take a while)
 function drawHashmarks()
@@ -168,7 +195,7 @@ function drawHashmarks()
               {
                 // Get whether the launch succeeded or not
                 success = entry['Success'];
-                drawHashmarkAtDate(year, month, day, currentTags[tagNo], success);
+                drawHashmarkAtDate(year, month-1, day, currentTags[tagNo], success);
               }
             }
           }
@@ -231,7 +258,9 @@ function getHashmarkColor(tag, success)
   }
 }
 
-function setup(width,height){
+function setup(width, height){
+  // console.log('width: ' + width);
+  // console.log('height: ' + height);
   projection = d3.geo.mercator()
     .translate([(width/2), (height/1.4)])
     .scale( width / 2 / Math.PI);
@@ -242,9 +271,17 @@ function setup(width,height){
       .attr("width", width)
       .attr("height", height)
       .attr("id", "map")
-      //.call(zoom)
+      // .call(zoom)
       .on("click", click)
       .append("g");
+
+  // Resize scrollbar so it doesn't exceed the map height
+  var mapHeight = $('#map').height();
+  var launchFilterHeight = $('#filters').height();
+  var nonScrollbarLaunchInfoBoxHeight = $('#launchInfoBox').height() - $('.scrollbar').height();
+  var newScrollbarHeight = mapHeight - launchFilterHeight - nonScrollbarLaunchInfoBoxHeight - 12;
+  $('.scrollbar').height(newScrollbarHeight);
+
 
   // TODO: figure out filters
   var defs = svg.append("defs");
@@ -293,13 +330,13 @@ function drawLaunchEvents()
   var info;
   for(var i=0;i<currentLaunches.length;i++) {
     info = currentLaunches[i].info;
-    cls = (info.Success == 'S') ? 'launch_success' : 'launch_failure';
-    addLaunchEvent(info.Longitude, info.Latitude, info["Launch Vehicle"], cls);
+    success = (info.Success == 'S') ? 'launch_success' : 'launch_failure';
+    addLaunchEvent(info.Longitude, info.Latitude, success);
   }
 }      
 
 function redraw() {
-  width = document.getElementById('container').scrollWidth;
+  width = document.getElementById('container').clientWidth;
   height = width / 2;
   d3.select('svg').remove();
   setup(width,height);
@@ -316,7 +353,7 @@ function redrawLaunchesOnly()
 	// Don't redraw launch sites because everything will be sad  
 }
 
-function move() {
+function moveMap() {
   var t = d3.event.translate;
   var s = d3.event.scale; 
   zscale = s;
@@ -349,14 +386,15 @@ function click() {
   var latlon = projection.invert(d3.mouse(this));
 }
 
-function addLaunchEvent(lat,lon,text,cls) {
+function addLaunchEvent(lat,lon,success) {
+	
   var x = projection([lat,lon])[0];
   var y = projection([lat,lon])[1];
 
   var circle = g.append("svg:circle")
         .attr("cx", x)
         .attr("cy", y)
-        .attr("class","point " + cls)
+        .attr("class","point " + success)
         .attr("r", 15);
 
   circle.transition()
@@ -511,7 +549,8 @@ function isLaunchSiteActive(text)
 }
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-var initialvalues = [1957.7, 2015.2];
+var monthFullNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var initialvalues = [1957.7, 2015.25];
 var slidervalue = initialvalues[0];
 // Play-related variables
 var currentStartPoint = 0;
@@ -620,7 +659,7 @@ function loadLaunchSites() {
 function displayDate(year, month, day) {
   var entries = [];
 
-  // Loads launches  from current day's launch data
+  // Loads launches from current day's launch data
   if(launchData[year] && launchData[year][month] && launchData[year][month][day]) {
     entries = launchData[year][month][day];
   }
@@ -644,6 +683,7 @@ function displayDate(year, month, day) {
           currentLaunches.push(
             { birthtime: (new Date()).getTime(),
               info: entries[i] } );
+		  addEntryToLaunchLog(entries[i]);
         }
       }
     }
@@ -653,6 +693,7 @@ function displayDate(year, month, day) {
       currentLaunches.push(
         { birthtime: (new Date()).getTime(),
           info: entries[i] } );
+	  addEntryToLaunchLog(entries[i]);
     }
   }
 
@@ -661,13 +702,57 @@ function displayDate(year, month, day) {
   // updateLaunchSiteOpacities();
 }
 
+function addEntryToLaunchLog(entry){
+	 // Add this entry to the text-based launch log
+	 var textToAdd = getLaunchInfo(entry);
+	 var launchLogText = $('#launchLogText');
+	 var currentText = launchLogText.html();
+	 launchLogText.html(currentText + textToAdd);
+	 // Adjust scroll height to stay at the bottom
+	 var launchLogBox = $('#launchInfoBoxAndScrollbar');
+
+   // This value is hard-coded based on current styling and I'm not proud of it
+   var scrollPoint = launchLogText.height() - 370;
+
+	 launchLogBox.scrollTop(scrollPoint);
+}
+
+// For updating the window on the screen that displays information about launches
+function getLaunchInfo(entry)
+{
+  var displayString = '<p>';
+
+  // Add entry's data to the string
+  var successColor = entry['Success'].trim() === 'S' ? 'green' : 'red';
+
+  // Get a name string (include alternative name, if it's different)
+  var nameString = entry["Official Payload Name"].trim();
+  // if (entry["Official Payload Name"].trim() !== entry["Manufacturer's Payload Name"].trim())
+  // {
+  //   nameString += ' (a.k.a. ' + entry["Manufacturer's Payload Name"].trim() + ')';
+  // }
+
+  // For field properties
+  var fpOpen = '<font color="#A0A0A0">';
+  var fpClose = '</font>';
+  displayString += '<font color="' + successColor + '">' + nameString + '</font><br>';
+  displayString += 'Launch Site: ' + fpOpen + entry['Launch Site (Full)'] + fpClose + '<br>';
+  displayString += 'Time: ' + fpOpen +entry['Launch Date and Time (UTC)'] + fpClose +'<br>';
+  displayString += 'Launch Vehicle: ' + fpOpen + entry['Launch Vehicle'] + fpClose +'<br>';
+  // displayString += 'Success/Failure: ' + entry['Success'] + fpClose +'<br>';
+  displayString += 'NSSDC ID: ' + fpOpen + entry['International Designator'] + fpClose +'<br>';
+  displayString += '</p>';
+
+  return displayString;
+}
+
 function updateLaunchSiteOpacities()
 {
   launchSites = d3.selectAll("#launchsite")[0];
 
   for (var i = 0; i < launchSites.length; i++)
   {
-    var name = launchSites[i].getAttribute('name');
+    var name = launchSites[i].getAttribute('name').trim();
 
     var siteActiveOpacity;
     if (isLaunchSiteActive(name))

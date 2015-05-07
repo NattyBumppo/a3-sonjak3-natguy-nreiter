@@ -18,11 +18,20 @@ circle {
 
 .text {
   font-size:10px;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 #container {
-  height:100%;
+  height: 100%;
+  position: relative;
+  margin-right:270px;
+}
+#sidebar {
+  float: right;
+  width:250px;
+}
+
+#wrapper {
   position: relative;
 }
 
@@ -224,22 +233,36 @@ div.tooltip {
 }
 
 #filters {
-  position: absolute;
-  top: 2px;
-  right: -2px;
   background: rgba(36, 36, 36, 0.75);
+  margin-left: 8px;
 }
 
 #filters h3 {
   padding: 5px;
   margin: 0px;
+
 }
 
 #filter_tag_list {
-  list-style: none;
-  padding: 5px;
-  margin: 0px;
-  font-size: 12px;
+    font-size: 14px;
+    font-family: 'Titillium Web', sans-serif;  
+    padding: 3px;
+    margin: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 0 #222, 0 -1px #333 inset;
+    -moz-box-shadow: 0 3px 0 #222, 0 -1px #333 inset;
+    box-shadow: 0 3px 0 #222, 0 -1px #333 inset;
+    background: rgba(11, 11, 11, 0.75);
+    color: #ffffff;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor: pointer;  
 }
 
 #filters input {
@@ -261,4 +284,108 @@ div.tooltip {
 #start_date:hover, #end_date:hover {
   color: #DDD;
   cursor: pointer;
+}
+
+#launchInfoBox{
+  width: 260px;
+	height: auto;
+  border: solid 1px;
+  border-color: rgba(33, 33, 33, 0.75);
+	opacity: 1.0;
+	overflow: auto;
+	z-index: 20;
+	right: -8px;
+	background: rgba(11, 11, 11, 0.75);
+	overflow: hidden;
+  position: relative;
+  bottom: 6px;
+  margin-top: 20px;
+  margin-left: -5px;
+}
+
+#launchInfoBox h3{
+  margin: 0;
+}
+
+#title_bar{
+  height: 24px;
+  width: auto;
+  opacity: 1.0;
+	font-size: 16px;
+	font-family:  'Titillium Web', sans-serif;
+	cursor: pointer;
+  margin-bottom: 6px;
+}
+
+#launchInfoBox h3 {
+	text-align: center;
+	margin: 3;
+	float: bottom;
+}
+
+#launchInfoBoxAndScrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#launchInfoBoxAndScrollbar::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #959595;
+}
+
+#launchInfoBoxAndScrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+#launchInfoBoxAndScrollbar{
+	font-size: 12px;
+	font-family:  'Titillium Web', sans-serif;
+	margin-left: 16px;
+  padding: 0 8px;
+}
+
+#clearButton {
+  font-size: 14px;
+  display: inline-block;
+  font-family:  'Titillium Web', sans-serif;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: 20px;
+  height: 20px;
+  width: 60px;
+  margin-right: 28px;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7)); /* Standard syntax */
+  box-shadow: none;
+  color: black;
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+}
+
+#clearButton:hover {
+  color: white;
+}
+
+.scrollbar
+{
+	margin-left: 10px;
+	float: left;
+  height: 300px;
+	width: 230px;
+	background: rgba(30, 30, 30, 0.75);
+	overflow-y: scroll;
+	margin-bottom: 30px;
+  height: 497px;
 }
