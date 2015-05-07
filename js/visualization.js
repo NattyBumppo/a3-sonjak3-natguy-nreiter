@@ -43,6 +43,8 @@ var tooltip, time_slider;
 var playSpeed = 50;
 const playBarWidth = 4;
 
+var sidebarVisible = true;
+
 function initialSetup() {
   // Just to make sure we get the right height...
   d3.select("#container").append("svg")
@@ -115,6 +117,40 @@ function initialSetup() {
   setupClearButton();
 }
 
+function toggleSidebarVisibility()
+{
+  var hideButton = $('#hideButton')[0];
+
+  if (sidebarVisible)
+  {
+    // Hide sidebar
+    d3.select('#sidebar').style('display', 'none');
+    d3.select('#container').style('width', '100%');
+  
+    // Change "hide" button to say "show" and look different
+    hideButton.innerHTML = "Show Sidebar";
+    hideButton.style.background = "rgba(255,255,255,0.5)";
+    hideButton.style.boxShadow = "inset 0 0 10px #000";
+  }
+  else
+  {
+    // Show sidebar
+    d3.select('#sidebar').style('display', 'inline');
+    d3.select('#container').style('width', 'auto');
+
+    // Change "show" button to say "hide" and look different
+    hideButton.innerHTML = "Hide Sidebar";
+    hideButton.style.background = "-webkit-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7))";
+    hideButton.style.background = "-o-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7))";
+    hideButton.style.background = "-moz-linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7))";
+    hideButton.style.background = "linear-gradient(rgba(255,255,255,.8), rgba(100,100,100,.7))";
+    hideButton.style.boxShadow = "none";
+  }
+
+  sidebarVisible = !sidebarVisible;
+  redraw();
+}
+
 function changeTag(evt) {
   var tag = $(evt.target).val();
 
@@ -147,6 +183,11 @@ function setupPlayControls() {
       pause();
       resetPlayButton();
     }
+  });
+
+  // Button for hiding and showing sidebar
+  $('#hideButton').on("click", function() {
+      toggleSidebarVisibility();
   });
 }
 
