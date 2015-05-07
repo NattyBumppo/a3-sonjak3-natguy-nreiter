@@ -44,8 +44,19 @@ var playSpeed = 50;
 const playBarWidth = 4;
 
 function initialSetup() {
+  // Just to make sure we get the right height...
+  d3.select("#container").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("id", "map")
+      // .call(zoom)
+      .on("click", click)
+      .append("g");
+
   width = document.getElementById('container').clientWidth;
   height = width / 2;
+
+  d3.select('#map').remove();
 
   // addPicker('#start_date', startDateHandler);
   // addPicker('#end_date');

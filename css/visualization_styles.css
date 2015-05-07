@@ -303,6 +303,7 @@ div.tooltip {
   width: 260px;
 	height: auto;
   border: solid 1px;
+  border-color: rgba(33, 33, 33, 0.75);
 	opacity: 1.0;
 	fill: white;
 	overflow: auto;
@@ -324,6 +325,7 @@ div.tooltip {
 	font-family:  'Titillium Web', sans-serif;
 	cursor: pointer;
 	background: rgba(77, 77, 77, 0.75);
+  margin-top: 0px;
 }
 
 #launchInfoBox h3 {
