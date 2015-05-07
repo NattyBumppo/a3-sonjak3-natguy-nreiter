@@ -105,7 +105,7 @@ function initialSetup() {
   $('#filter_tag_list').change(changeTag);
 
  //  $("#title_bar").click(function(){
-	// $("#launchInfoBoxAndSlider").slideToggle();
+	// $("#launchInfoBoxAndScrollbar").slideToggle();
 
 	// });
 	
@@ -255,9 +255,9 @@ function getHashmarkColor(tag, success)
   }
 }
 
-function setup(width,height){
-  console.log('width: ' + width);
-  console.log('height: ' + height);
+function setup(width, height){
+  // console.log('width: ' + width);
+  // console.log('height: ' + height);
   projection = d3.geo.mercator()
     .translate([(width/2), (height/1.4)])
     .scale( width / 2 / Math.PI);
@@ -271,6 +271,14 @@ function setup(width,height){
       // .call(zoom)
       .on("click", click)
       .append("g");
+
+  // Resize scrollbar so it doesn't exceed the map height
+  var mapHeight = $('#map').height();
+  var launchFilterHeight = $('#filters').height();
+  var nonScrollbarLaunchInfoBoxHeight = $('#launchInfoBox').height() - $('.scrollbar').height();
+  var newScrollbarHeight = mapHeight - launchFilterHeight - nonScrollbarLaunchInfoBoxHeight - 12;
+  $('.scrollbar').height(newScrollbarHeight);
+
 
   // TODO: figure out filters
   var defs = svg.append("defs");
@@ -698,7 +706,7 @@ function addEntryToLaunchLog(entry){
 	 var currentText = launchLogText.html();
 	 launchLogText.html(currentText + textToAdd);
 	 // Adjust scroll height to stay at the bottom
-	 var launchLogBox = $('#launchInfoBoxAndSlider');
+	 var launchLogBox = $('#launchInfoBoxAndScrollbar');
 
    // This value is hard-coded based on current styling and I'm not proud of it
    var scrollPoint = launchLogText.height() - 370;
@@ -712,13 +720,16 @@ function getLaunchInfo(entry)
   var displayString = '<p>';
 
   // Add entry's data to the string
-  var color = entry['Success'].trim() === 'S' ? 'green' : 'red';
-  displayString += '<font color="' + color + '">' + entry["Manufacturer's Payload Name"] + '</font><br>';
-  displayString += 'Launch Site: ' + entry['Launch Site (Full)'] + '<br>';
-  displayString += 'Time: ' + entry['Launch Date and Time (UTC)'] + '<br>';
-  displayString += 'Launch Vehicle: ' + entry['Launch Vehicle'] + '<br>';
-  // displayString += 'Success/Failure: ' + entry['Success'] + '<br>';
-  displayString += 'NSSDC ID: ' + entry['International Designator'] + '<br>';
+  var successColor = entry['Success'].trim() === 'S' ? 'green' : 'red';
+  // For field properties
+  var fpOpen = '<font color="#A0A0A0">';
+  var fpClose = '</font>';
+  displayString += '<font color="' + successColor + '">' + entry["Manufacturer's Payload Name"] + '</font><br>';
+  displayString += 'Launch Site: ' + fpOpen + entry['Launch Site (Full)'] + fpClose + '<br>';
+  displayString += 'Time: ' + fpOpen +entry['Launch Date and Time (UTC)'] + fpClose +'<br>';
+  displayString += 'Launch Vehicle: ' + fpOpen + entry['Launch Vehicle'] + fpClose +'<br>';
+  // displayString += 'Success/Failure: ' + entry['Success'] + fpClose +'<br>';
+  displayString += 'NSSDC ID: ' + fpOpen + entry['International Designator'] + fpClose +'<br>';
   displayString += '</p>';
 
   return displayString;
