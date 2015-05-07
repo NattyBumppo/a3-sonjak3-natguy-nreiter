@@ -5495,4 +5495,4 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 2015 Mar 28 1149,SRILR,"Satish Dhawan Space Centre, India",13.9,80.4,PSLV-XL,S,IRNSS-1D,,Sriharikota,,2015-018A,,S40547,,,,,
 2015 Mar 30 1352,XICLF,"Xichang Launch Facility, China",28.25,102,Chang Zheng 3C/YZ1,S,Beidou DW 17,,Xichang LC2,,2015-019A,,S40549  3,,,,,
 2015 Mar 31 1348,PLMSC,"Plesetsk Missile and Space Complex, Russia",62.8,40.1,Rokot,S,Gonets-M No. 21),,Plesetsk LC133,,2015-020A,,S40552,,,,,
-2015 Apr 14 2010,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,2015-021A,,S40588,,,,,
+2015 Apr 14 2010,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,2015-021A,,S40588,,,,SpaceX,
