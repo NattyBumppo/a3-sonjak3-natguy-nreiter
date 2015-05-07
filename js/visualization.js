@@ -44,7 +44,7 @@ var playSpeed = 50;
 const playBarWidth = 4;
 
 function initialSetup() {
-  width = document.getElementById('container').scrollWidth;
+  width = document.getElementById('container').clientWidth;
   height = width / 2;
 
   // addPicker('#start_date', startDateHandler);
@@ -256,6 +256,8 @@ function getHashmarkColor(tag, success)
 }
 
 function setup(width,height){
+  console.log('width: ' + width);
+  console.log('height: ' + height);
   projection = d3.geo.mercator()
     .translate([(width/2), (height/1.4)])
     .scale( width / 2 / Math.PI);
@@ -323,7 +325,7 @@ function drawLaunchEvents()
 }      
 
 function redraw() {
-  width = document.getElementById('container').scrollWidth;
+  width = document.getElementById('container').clientWidth;
   height = width / 2;
   d3.select('svg').remove();
   setup(width,height);

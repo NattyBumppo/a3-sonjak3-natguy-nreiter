@@ -234,6 +234,7 @@ div.tooltip {
 
 #filters {
   background: rgba(36, 36, 36, 0.75);
+  margin-left: 8px;
 }
 
 #filters h3 {
@@ -243,10 +244,37 @@ div.tooltip {
 }
 
 #filter_tag_list {
-  list-style: none;
+/*  list-style: none;
   padding: 5px;
   margin: 0px;
   font-size: 12px;
+  border: 1px solid #111;
+  background: transparent;
+  padding: 5px 35px 5px 5px;
+  font-size: 14px;
+  font-family:  'Titillium Web', sans-serif;  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(favicon.ico) 96% / 15% no-repeat #eee;  */
+
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;  
 }
 
 #filters input {
@@ -366,4 +394,5 @@ div.tooltip {
 	background: rgba(36, 36, 36, 0.75);
 	overflow-y: scroll;
 	margin-bottom: 30px;
+  height: 497px;
 }
