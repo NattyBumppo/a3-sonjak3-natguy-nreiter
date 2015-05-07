@@ -152,34 +152,15 @@ function setupPlayControls() {
 }
 
 function setupClearButton() {
-  console.log('setup');
   var clearButton = $('#clearButton');
-  // clearButton.on("click", function() {
-	  // console.log('mofo');
-	 // // Clear launch log
-	 // var launchLogBox = $('#launchInfoBoxAndSlider');
-	 // var currentText = launchLogBox.html();
-	 // // Clear the launch log box (except for the clear button itself)
-	 // launchLogBox.html('<div id="clearButton">Clear</div>');
-  // });
-  // clearButton.click(function() {
-	  // console.log('clicked');
-	 // // Clear launch log
-	 // var launchLogBox = $('#launchInfoBoxAndSlider');
-	 // var currentText = launchLogBox.html();
-	 // // Clear the launch log box (except for the clear button itself)
-	 // launchLogBox.html('<div id="clearButton">Clear</div>');
-	 // // Rebind
-	 // setupClearButton();
-   // });
-   d3.select("#clearButton").on('click', function() {
-	 console.log('clicked');
-	 // Clear launch log
-	 var launchLogText = $('#launchLogText');
-	 var currentText = launchLogText.html();
-	 // Clear the launch log box
-	 launchLogText.html('');
-   });
+
+  d3.select("#clearButton").on('click', function() {
+	// Clear launch log
+	var launchLogText = $('#launchLogText');
+	var currentText = launchLogText.html();
+	// Clear the launch log box
+	launchLogText.html('');
+  });
 }
 
 // Uses list of current tags to generate colored hashmarks to indicate events
@@ -722,8 +703,7 @@ function displayDate(year, month, day) {
   // updateLaunchSiteOpacities();
 }
 
-{
-function addEntryToLaunchLog(entry)
+function addEntryToLaunchLog(entry){
 	 // Add this entry to the text-based launch log
 	 var textToAdd = getLaunchInfo(entry);
 	 var launchLogText = $('#launchLogText');
@@ -731,7 +711,11 @@ function addEntryToLaunchLog(entry)
 	 launchLogText.html(currentText + textToAdd);
 	 // Adjust scroll height to stay at the bottom
 	 var launchLogBox = $('#launchInfoBoxAndSlider');
-	 launchLogBox.scrollTop($('.scrollbar').scrollTop());
+
+   // This value is hard-coded based on current styling and I'm not proud of it
+   var scrollPoint = launchLogText.height() - 370;
+
+	 launchLogBox.scrollTop(scrollPoint);
 }
 
 // For updating the window on the screen that displays information about launches
@@ -740,9 +724,6 @@ function getLaunchInfo(entry)
   var displayString = '<p>';
 
   // Add entry's data to the string
-  // console.log(monthNo);
-  // console.log(day);
-  // console.log(entry);
   var color = entry['Success'].trim() === 'S' ? 'green' : 'red';
   displayString += '<font color="' + color + '">' + entry["Manufacturer's Payload Name"] + '</font><br>';
   displayString += 'Launch Site: ' + entry['Launch Site (Full)'] + '<br>';
