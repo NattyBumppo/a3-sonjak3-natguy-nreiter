@@ -317,10 +317,10 @@ div.tooltip {
 }
 
 #title_bar{
-  height: 20px;
+  height: 24px;
   width: auto;
   opacity: 1.0;
-	font-size: 11px;
+	font-size: 14px;
 	font-family:  'Titillium Web', sans-serif;
 	cursor: pointer;
 	background: rgba(77, 77, 77, 0.75);
@@ -353,7 +353,7 @@ div.tooltip {
 }
 
 #launchInfoBoxAndScrollbar{
-	font-size: 10px;
+	font-size: 12px;
 	font-family:  'Titillium Web', sans-serif;
 	margin-left: 16px;
 }
