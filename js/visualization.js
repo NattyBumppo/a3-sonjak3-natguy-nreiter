@@ -58,9 +58,6 @@ function initialSetup() {
 
   d3.select('#map').remove();
 
-  // addPicker('#start_date', startDateHandler);
-  // addPicker('#end_date');
-
   time_slider = d3.slider()
     .axis(true)
     .min(1957.7)
@@ -114,11 +111,6 @@ function initialSetup() {
   setupHashmarkArea();
 
   $('#filter_tag_list').change(changeTag);
-
- //  $("#title_bar").click(function(){
-	// $("#launchInfoBoxAndScrollbar").slideToggle();
-
-	// });
 	
   setupClearButton();
 }
@@ -732,10 +724,18 @@ function getLaunchInfo(entry)
 
   // Add entry's data to the string
   var successColor = entry['Success'].trim() === 'S' ? 'green' : 'red';
+
+  // Get a name string (include alternative name, if it's different)
+  var nameString = entry["Official Payload Name"].trim();
+  // if (entry["Official Payload Name"].trim() !== entry["Manufacturer's Payload Name"].trim())
+  // {
+  //   nameString += ' (a.k.a. ' + entry["Manufacturer's Payload Name"].trim() + ')';
+  // }
+
   // For field properties
   var fpOpen = '<font color="#A0A0A0">';
   var fpClose = '</font>';
-  displayString += '<font color="' + successColor + '">' + entry["Manufacturer's Payload Name"] + '</font><br>';
+  displayString += '<font color="' + successColor + '">' + nameString + '</font><br>';
   displayString += 'Launch Site: ' + fpOpen + entry['Launch Site (Full)'] + fpClose + '<br>';
   displayString += 'Time: ' + fpOpen +entry['Launch Date and Time (UTC)'] + fpClose +'<br>';
   displayString += 'Launch Vehicle: ' + fpOpen + entry['Launch Vehicle'] + fpClose +'<br>';
