@@ -292,7 +292,6 @@ div.tooltip {
   border: solid 1px;
   border-color: rgba(33, 33, 33, 0.75);
 	opacity: 1.0;
-	fill: white;
 	overflow: auto;
 	z-index: 20;
 	right: -8px;
@@ -348,6 +347,7 @@ div.tooltip {
 	font-size: 12px;
 	font-family:  'Titillium Web', sans-serif;
 	margin-left: 16px;
+  padding: 0 8px;
 }
 
 #clearButton {
@@ -384,7 +384,7 @@ div.tooltip {
 	float: left;
   height: 300px;
 	width: 230px;
-	background: rgba(36, 36, 36, 0.75);
+	background: rgba(30, 30, 30, 0.75);
 	overflow-y: scroll;
 	margin-bottom: 30px;
   height: 497px;
