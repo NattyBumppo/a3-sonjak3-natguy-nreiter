@@ -337,7 +337,7 @@ div.tooltip {
   display: table-cell;
   vertical-align: middle;
   cursor: pointer;
-  line-height: 30px;
+  line-height: 20px;
   height: 20px;
   width: 60px;
   margin-right: 28px;
