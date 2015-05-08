@@ -525,7 +525,7 @@ function isLaunchSiteActive(text)
     case "Kapustin Yar Missile and Space Complex, Russia":
       establishedDate = new Date(1961, 10-1, 27);
       return date > establishedDate;    
-    case "Kennedy Space Center, USA":
+    case "Kennedy Space Center/Cape Canaveral, USA":
       establishedDate = new Date(1957, 12-1, 6);
       return date > establishedDate;    
     case "Kodiak Launch Complex, Alaska, USA":
