@@ -782,7 +782,16 @@ function getLaunchInfo(entry)
   displayString += 'Time: ' + fpOpen +entry['Launch Date and Time (UTC)'] + fpClose +'<br>';
   displayString += 'Launch Vehicle: ' + fpOpen + entry['Launch Vehicle'] + fpClose +'<br>';
   // displayString += 'Success/Failure: ' + entry['Success'] + fpClose +'<br>';
-  displayString += 'COSPAR ID: ' + fpOpen + entry['COSPAR'] + fpClose +'<br>';
+ 
+  // Only show COSPAR ID if we have one (some of the newer launch entries don't have that data yet)
+  if (entry['COSPAR'])
+  {
+	displayString += 'COSPAR ID: ' + fpOpen + entry['COSPAR'] + fpClose +'<br>';
+  }
+  else
+  {
+	  displayString += 'COSPAR ID: ' + fpOpen + 'Not available' + fpClose +'<br>';
+  }
   displayString += '</p>';
 
   return displayString;
