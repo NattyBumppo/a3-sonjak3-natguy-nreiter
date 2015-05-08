@@ -5482,7 +5482,7 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 2015 Mar 2 0350:00,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9,S,ABS-3A,ABS-3A,CC       LC40,,,S40424,,,SpaceX
 2015 Mar 13 0244,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Atlas V 421,S,MMS 1,Magnetospheric Multiscale,CC       SLC41,,,S40482,,,
 2015 Mar 18 2205,TYMSC,"Baikonur Cosmodrome, Kazakhstan",45.6,63.4,Proton-M/Briz-M,S,Ekspress AM-7,Ekspress AM-7,GIK-5    LC200/39,,,S40505,,,
-2015 Mar 25 1836,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,"Delta 4M+(4,2)",S,GPS SVN 71,,Canaveral SLC37,,,S40534  2,,,
+2015 Mar 25 1836,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,"Delta 4M+(4,2)",S,GPS SVN 71,,Canaveral SLC37,,,S40534  2,,,SpaceX
 2015 Mar 25 2208,DLS,"Dombarovsky Air Base, Russia",50.8,59.516667,Dnepr,S,Arirang-3A,,Yasniy Sh370/13,,,S40536,,,
 2015 Mar 26 0121,TANSC,"Tanegashima Space Center, Japan",30.4,131,H-IIA 202,S,IGS Optical 5,,Tanegashima,,,S40538,,,
 2015 Mar 27 1942,TYMSC,"Baikonur Cosmodrome, Kazakhstan",45.6,63.4,Soyuz-FG,S,Soyuz TMA-16M,,Baykonur LC1,,,S40540,,,
@@ -5490,4 +5490,4 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 2015 Mar 28 1149,SRILR,"Satish Dhawan Space Centre, India",13.9,80.4,PSLV-XL,S,IRNSS-1D,,Sriharikota,,,S40547,,,
 2015 Mar 30 1352,XICLF,"Xichang Launch Facility, China",28.25,102,Chang Zheng 3C/YZ1,S,Beidou DW 17,,Xichang LC2,,,S40549  3,,,
 2015 Mar 31 1348,PLMSC,"Plesetsk Missile and Space Complex, Russia",62.8,40.1,Rokot,S,Gonets-M No. 21),,Plesetsk LC133,,,S40552,,,
-2015 Apr 14 2010,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,,S40588,,,
+2015 Apr 14 2010,AFETR,"Kennedy Space Center, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,,S40588,,,SpaceX
