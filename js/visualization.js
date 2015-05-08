@@ -782,7 +782,7 @@ function getLaunchInfo(entry)
   displayString += 'Time: ' + fpOpen +entry['Launch Date and Time (UTC)'] + fpClose +'<br>';
   displayString += 'Launch Vehicle: ' + fpOpen + entry['Launch Vehicle'] + fpClose +'<br>';
   // displayString += 'Success/Failure: ' + entry['Success'] + fpClose +'<br>';
-  displayString += 'NSSDC ID: ' + fpOpen + entry['COSPAR'] + fpClose +'<br>';
+  displayString += 'COSPAR ID: ' + fpOpen + entry['COSPAR'] + fpClose +'<br>';
   displayString += '</p>';
 
   return displayString;
