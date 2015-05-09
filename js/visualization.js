@@ -741,15 +741,13 @@ function displayDate(year, month, day) {
 
   updateSliderPositionAndCurrentDate();
   redrawLaunchesOnly();
-  // updateLaunchSiteOpacities();
 }
 
 function addEntryToLaunchLog(entry){
 	 // Add this entry to the text-based launch log
 	 var textToAdd = getLaunchInfo(entry);
 	 var launchLogText = $('#launchLogText');
-	 var currentText = launchLogText.html();
-	 launchLogText.html(currentText + textToAdd);
+	 launchLogText.append(textToAdd);
 	 // Adjust scroll height to stay at the bottom
 	 var launchLogBox = $('#launchInfoBoxAndScrollbar');
 
