@@ -1907,7 +1907,7 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 1964 Mar 18 1507:00,KYMSC,"Kapustin Yar Missile and Space Complex, Russia",48.4,45.8,Kosmos 63S1,S,Kosmos-26,DS-MG No. 1,GTsP-4   Mayak-2,1964-013A,1964-013,S00766,-,RAE,
 1964 Oct 24 0516:00,KYMSC,"Kapustin Yar Missile and Space Complex, Russia",48.4,45.8,Kosmos 63S1,S,Kosmos-49,DS-MG No. 2,GTsP-4   Mayak-2,1964-069A,1964-069,S00913,-,RAE,
 2015 Mar 25 1836,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,"Delta 4M+(4,2)",S,GPS SVN 71,,Canaveral SLC37,,,S40534  2,,,
-2015 Apr 14 2010,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,,S40588,,,
+2015 Apr 14 2010,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9 v1.1,S,Dragon CRS-6,,Canaveral SLC40,,,S40588,,,SpaceX
 1958 Dec 18 2302:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Atlas B,S,SCORE,SCORE,CC       LC11,1958 ZET,1958 ZET,S00010,10B,AP,
 1960 Dec 15 0910:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Atlas Able,F,P-31,Able VB,CC       LC12,1960-F18,1960-F18,F00138,91D,KHR-1,Moon
 1960 Sep 25 1513:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Atlas Able,F,P-30 (Able VA),Able VA,CC       LC12,1960-F11,1960-F11,F00113,80D,KHR-1,Moon
@@ -2422,7 +2422,7 @@ Launch Date and Time (UTC),Launch Site (Abbrv.),Launch Site (Full),Latitude,Long
 2014 Sep 7 0500:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9,S,Asiasat 6,Asiasat 6,CC       LC40,2014-052A,2014-052,S40141,12,Wire,SpaceX
 2015 Jan 10 0947:10,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9,S,Dragon CRS-5,Dragon SC7,CC       LC40,2015-001A,2015-001,S40370,14,Wire,SpaceX
 2015 Feb 11 2303:42,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9,S,DSCOVR,Deep Space Climate Obsy.,CC       LC40,,,S40390,,,SpaceX
-2015 Mar 2 0350:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9,S,ABS-3A,ABS-3A,CC       LC40,,,S40424,,,SpaceX
+2015 Mar 2 0350:00,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Falcon 9,S,ABS-3/Eutelsat 115 West B,ABS-3A,CC       LC40,,,S40424,,,SpaceX
 1965 Dec 21 1400:01,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Titan IIIC,S,LES 4,LES 4,CC       LC41,1965-108B,1965-108,S01870,3C-8,Titan3Review,
 1966 Aug 26 1359:56,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Titan IIIC,F,IDCSP,IDCSP,CC       LC41,1966-F08,1966-F08,F00391,3C-12,Titan3Review,
 1966 Jun 16 1400:01,AFETR,"Cape Canaveral, USA",28.391139,-80.588343,Titan IIIC,S,GGTS,GGTS,CC       LC41,1966-053A,1966-053,S02207,3C-11,Titan3Review,
