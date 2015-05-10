@@ -511,7 +511,7 @@ function isLaunchSiteActive(text)
     case "Dombarovsky Air Base, Russia":
       establishedDate = new Date(2006, 7-1, 12);
     case "Guiana Space Centre, French Guiana":
-      establishedDate = new Date(1970, 12-1, 12);
+      establishedDate = new Date(1970, 3-1, 10);
       return date > establishedDate;    
     case "Hammaguir Launch Site, Algeria":
       establishedDate = new Date(1965, 11-1, 26);
