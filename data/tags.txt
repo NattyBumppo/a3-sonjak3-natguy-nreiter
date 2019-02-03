@@ -1,0 +1,375 @@
+1958 ETA,Moon
+1958 THE,Moon
+1958-F09,Moon
+1958-F15,Moon
+1958-F17,Moon
+1958-F19,Moon
+1958-F20,Moon
+1959 MU 1,Moon
+1959 NU 1,Moon
+1959 THE 1,Moon
+1959 XI 1,Moon
+1959-F06,Moon
+1959-F08,Moon
+1959-F09,Moon
+1960-F06,Moon
+1960-F11,Moon
+1960-F12,Mars
+1960-F14,Mars
+1960-F18,Moon
+1960-U01,Moon
+1961 A THE,Moon
+1961 BET 1,Venus
+1961 PHI 1,Moon
+1962 A PHI 1,Venus
+1962 A PI 1,Venus
+1962 A RHO 1,Venus
+1962 A TAU 1,Venus
+1962 ALP 1,Moon
+1962 B ETA 1,Moon
+1962 B IOT 1,Mars
+1962 B NU 3,Mars
+1962 B XI 1,Mars
+1962 MU 1,Moon
+1963-001B,Moon
+1963-008B,Moon
+1963-044A,Venus
+1963-F01,Moon
+1964-007A,Moon
+1964-014A,Venus
+1964-016D,Venus
+1964-025A,Moon
+1964-041A,Moon
+1964-057A,Moon
+1964-073A,Mars
+1964-077A,Mars
+1964-078C,Mars
+1964-082A,Moon
+1964-F01,Venus
+1964-F03,Moon
+1964-F05,Moon
+1965-010A,Moon
+1965-018A,Moon
+1965-023A,Moon
+1965-036A,Moon
+1965-044A,Moon
+1965-056A,Moon
+1965-064A,Moon
+1965-077A,Moon
+1965-091A,Venus
+1965-092A,Venus
+1965-094A,Venus
+1965-099A,Moon
+1965-F04,Moon
+1965-F05,Moon
+1966-006A,Moon
+1966-017A,Moon
+1966-027A,Moon
+1966-030A,Moon
+1966-045A,Moon
+1966-058A,Moon
+1966-073A,Moon
+1966-078A,Moon
+1966-084A,Moon
+1966-094A,Moon
+1966-095A,Moon
+1966-100A,Moon
+1966-116A,Moon
+1966-U04,Moon
+1966-U06,Moon
+1967-008A,Moon
+1967-035A,Moon
+1967-041A,Moon
+1967-058A,Venus
+1967-060A,Venus
+1967-063A,Venus
+1967-068A,Moon
+1967-070A,Moon
+1967-075A,Moon
+1967-084A,Moon
+1967-112A,Moon
+1967-113A,Moon
+1967-F11,Moon
+1967-F12,Moon
+1968-001A,Moon
+1968-007A,Moon
+1968-025A,Moon
+1968-027A,Moon
+1968-075A,Moon
+1968-089A,Moon
+1968-101A,Moon
+1968-118A,Moon
+1968-F01,Moon
+1968-F03,Moon
+1969-001A,Venus
+1969-002A,Venus
+1969-014A,Mars
+1969-018A,Moon
+1969-030A,Mars
+1969-043A,Moon
+1969-058A,Moon
+1969-059A,Moon
+1969-065A,Moon
+1969-067A,Moon
+1969-080A,Moon
+1969-092,Moon
+1969-099A,Moon
+1969-F01,Moon
+1969-F04,Moon
+1969-F05,Moon
+1969-F06,Mars
+1969-F07,Mars
+1969-F08,Moon
+1969-F10,Moon
+1970-029A,Moon
+1970-060A,Venus
+1970-065A,Venus
+1970-072A,Moon
+1970-088A,Moon
+1970-095A,Moon
+1970-F02,Moon
+1970-U01,Moon
+1971-008A,Moon
+1971-042A,Mars
+1971-045A,Mars
+1971-049A,Mars
+1971-051A,Mars
+1971-063A,Moon
+1971-073A,Moon
+1971-082A,Moon
+1971-F04,Mars
+1972-007A,Moon
+1972-012A,Outer Solar System
+1972-021A,Venus
+1972-023A,Venus
+1972-031A,Moon
+1972-096A,Moon
+1972-U01,Moon
+1973-001A,Moon
+1973-019A,Outer Solar System
+1973-039A,Moon
+1973-047A,Mars
+1973-049A,Mars
+1973-052A,Mars
+1973-053A,Mars
+1973-085A,Venus
+1974-037A,Moon
+1974-084A,Moon
+1975-050A,Venus
+1975-054A,Venus
+1975-066A,Moon
+1975-075A,Mars
+1975-083A,Mars
+1975-F05,Moon
+1976-081A,Moon
+1976-U01,Moon
+1977-076A,Outer Solar System
+1977-084A,Outer Solar System
+1978-051A,Venus
+1978-078A,Venus
+1978-084A,Venus
+1978-086A,Venus
+1981-034A,Space Shuttle
+1981-106A,Venus
+1981-110A,Venus
+1981-111A,Space Shuttle
+1982-022A,Space Shuttle
+1982-065A,Space Shuttle
+1982-110A,Space Shuttle
+1983-026A,Space Shuttle
+1983-053A,Venus
+1983-054A,Venus
+1983-059A,Space Shuttle
+1983-089A,Space Shuttle
+1983-116A,Space Shuttle
+1984-011A,Space Shuttle
+1984-034A,Space Shuttle
+1984-093A,Space Shuttle
+1984-108A,Space Shuttle
+1984-113A,Space Shuttle
+1984-125A,Venus
+1984-128A,Venus
+1985-010A,Space Shuttle
+1985-028A,Space Shuttle
+1985-034A,Space Shuttle
+1985-048A,Space Shuttle
+1985-063A,Space Shuttle
+1985-076A,Space Shuttle
+1985-092A,Space Shuttle
+1985-104A,Space Shuttle
+1985-109A,Space Shuttle
+1986-003A,Space Shuttle
+1986-F01,Space Shuttle
+1988-058A,Mars
+1988-059A,Mars
+1988-091A,Space Shuttle
+1988-106A,Space Shuttle
+1989-021A,Space Shuttle
+1989-033A,Space Shuttle
+1989-061A,Space Shuttle
+1989-084A,Space Shuttle
+1989-090A,Space Shuttle
+1990-002A,Space Shuttle
+1990-007A,Moon
+1990-019A,Space Shuttle
+1990-037A,Space Shuttle
+1990-090A,Space Shuttle
+1990-097A,Space Shuttle
+1990-106A,Space Shuttle
+1991-027A,Space Shuttle
+1991-031A,Space Shuttle
+1991-040A,Space Shuttle
+1991-054A,Space Shuttle
+1991-063A,Space Shuttle
+1991-080A,Space Shuttle
+1992-002A,Space Shuttle
+1992-015A,Space Shuttle
+1992-026A,Space Shuttle
+1992-034A,Space Shuttle
+1992-044A,Moon
+1992-049A,Space Shuttle
+1992-061A,Space Shuttle
+1992-063A,Mars
+1992-070A,Space Shuttle
+1992-086A,Space Shuttle
+1993-003A,Space Shuttle
+1993-023A,Space Shuttle
+1993-027A,Space Shuttle
+1993-037A,Space Shuttle
+1993-058A,Space Shuttle
+1993-065A,Space Shuttle
+1993-075A,Space Shuttle
+1994-004A,Moon
+1994-006A,Space Shuttle
+1994-015A,Space Shuttle
+1994-020A,Space Shuttle
+1994-039A,Space Shuttle
+1994-059A,Space Shuttle
+1994-062A,Space Shuttle
+1994-073A,Space Shuttle
+1995-004A,Space Shuttle
+1995-007A,Space Shuttle
+1995-030A,Space Shuttle
+1995-035A,Space Shuttle
+1995-048A,Space Shuttle
+1995-056A,Space Shuttle
+1995-061A,Space Shuttle
+1996-001A,Space Shuttle
+1996-012A,Space Shuttle
+1996-018A,Space Shuttle
+1996-032A,Space Shuttle
+1996-036A,Space Shuttle
+1996-057A,Space Shuttle
+1996-062A,Mars
+1996-064,Mars
+1996-065A,Space Shuttle
+1996-068A,Mars
+1997-001A,Space Shuttle
+1997-004A,Space Shuttle
+1997-013A,Space Shuttle
+1997-023A,Space Shuttle
+1997-032A,Space Shuttle
+1997-039A,Space Shuttle
+1997-055A,Space Shuttle
+1997-061A,Outer Solar System
+1997-073A,Space Shuttle
+1997-086A,Moon
+1998-001A,Moon
+1998-003A,Space Shuttle
+1998-022A,Space Shuttle
+1998-034A,Space Shuttle
+1998-041A,Mars
+1998-064A,Space Shuttle
+1998-069A,Space Shuttle
+1998-073A,Mars
+1999-001A,Mars
+1999-030A,Space Shuttle
+1999-040A,Space Shuttle
+1999-069A,Space Shuttle
+2000-010A,Space Shuttle
+2000-027A,Space Shuttle
+2000-053A,Space Shuttle
+2000-062A,Space Shuttle
+2000-078A,Space Shuttle
+2001-006A,Space Shuttle
+2001-010A,Space Shuttle
+2001-013A,Mars
+2001-016A,Space Shuttle
+2001-028A,Space Shuttle
+2001-035A,Space Shuttle
+2001-054A,Space Shuttle
+2002-010A,Space Shuttle
+2002-018A,Space Shuttle
+2002-028A,Space Shuttle
+2002-047A,Space Shuttle
+2002-052A,Space Shuttle
+2003-003A,Space Shuttle
+2003-022A,Mars
+2003-027A,Mars
+2003-032A,Mars
+2003-043A,Moon
+2005-026A,Space Shuttle
+2005-029A,Mars
+2005-045A,Venus
+2006-001A,Outer Solar System
+2006-028A,Space Shuttle
+2006-036A,Space Shuttle
+2006-055A,Space Shuttle
+2006-F01,SpaceX
+2007-004A,Moon
+2007-024A,Space Shuttle
+2007-034A,Mars
+2007-035A,Space Shuttle
+2007-039A,Moon
+2007-050A,Space Shuttle
+2007-051A,Moon
+2007-F02,SpaceX
+2008-005A,Space Shuttle
+2008-009A,Space Shuttle
+2008-027A,Space Shuttle
+2008-048A,SpaceX
+2008-052A,Moon
+2008-059A,Space Shuttle
+2008-F01,SpaceX
+2009-012A,Space Shuttle
+2009-025A,Space Shuttle
+2009-031A,Moon
+2009-037A,SpaceX
+2009-038A,Space Shuttle
+2009-045A,Space Shuttle
+2009-062A,Space Shuttle
+2010-004A,Space Shuttle
+2010-012A,Space Shuttle
+2010-019A,Space Shuttle
+2010-020A,Venus
+2010-026A,SpaceX
+2010-050A,Moon
+2010-066A,SpaceX
+2011-008A,Space Shuttle
+2011-020A,Space Shuttle
+2011-031A,Space Shuttle
+2011-040A,Outer Solar System
+2011-046A,Moon
+2011-065A,Mars
+2011-070A,Mars
+2012-027A,SpaceX
+2012-054A,SpaceX
+2013-010A,SpaceX
+2013-047A,Moon
+2013-055A,SpaceX
+2013-060A,Mars
+2013-063A,Mars
+2013-070A,Moon
+2013-071A,SpaceX
+2014-002A,SpaceX
+2014-022A,SpaceX
+2014-040A,SpaceX
+2014-046A,SpaceX
+2014-052A,SpaceX
+2014-056A,SpaceX
+2014-065A,Moon
+2015-001A,SpaceX
+2016-017A,Mars
+2018-042A,Mars
+2018-038A,Moon
+2018-045A,Moon

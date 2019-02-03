@@ -63,7 +63,7 @@ function initialSetup() {
   time_slider = d3.slider()
     .axis(true)
     .min(1957.7)
-    .max(2015.35)
+    .max(2019.1)
     .value(slidervalue)
     .on("slide", updateSliderValue)
 
@@ -585,6 +585,22 @@ function isLaunchSiteActive(text)
     case "Yavne Launch Facility, Israel":
       establishedDate = new Date(1988, 9-1, 19);
       return date > establishedDate;
+    case "Vostochny Cosmodrome, Russia":
+      establishedDate = new Date(2016, 8-1, 28);
+      return date > establishedDate;
+    case "Holloman Air Force Base":
+      establishedDate = new Date(1957, 10-1, 17);
+      return date > establishedDate;
+    case "Kauai Test Facility":
+      establishedDate = new Date(2015, 11-1, 4);
+      return date > establishedDate;
+    case "Mahia Rocket Lab Launch Complex 1":
+      establishedDate = new Date(2017, 5-1, 25);
+      return date > establishedDate;
+    case "Wenchang Spacecraft Launch Site":
+      establishedDate = new Date(2016, 6-1, 25);
+      return date > establishedDate;
+
     default:
       return false;
   }
@@ -592,7 +608,7 @@ function isLaunchSiteActive(text)
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var monthFullNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var initialvalues = [1957.7, 2015.35];
+var initialvalues = [1957.7, 2019.1];
 var slidervalue = initialvalues[0];
 // Play-related variables
 var currentStartPoint = 0;
@@ -661,7 +677,7 @@ function convertDateToDecimal(date) {
 // a data structure mapped by 'year'=>'month'=>'day'=>array of entries
 // Stored in `launchData`
 function loadLaunchData() {
-  d3.csv("data/massive_launchlog.csv", function(err, entries) {
+  d3.csv("data/launch_log_for_load.csv", function(err, entries) {
     entries.forEach(function(entry) {
       var date_parts = entry["Launch Date and Time (UTC)"].split(" ");
       var year = date_parts[0] * 1;
